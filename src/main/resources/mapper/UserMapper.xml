@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.wjspc.dao.UserMapper">
+
+
+    <insert id="register" parameterType="com.wjspc.domain.User">
+        insert into
+          st_user
+          (id,user_name,phone_number,password,email,status,create_by,create_time,update_by,update_time)
+        values
+          (#{id},#{userName},#{phoneNumber},#{password},#{email},#{status},#{createBy},#{createTime},#{updateBy},#{updateTime})
+
+    </insert>
+
+</mapper>
