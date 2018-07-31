@@ -52,6 +52,9 @@
     <!-- For loggers in the these namespaces, LogService at all levels. -->
     <logger name="org.springframework.web" level="DEBUG"/>
 
+    <!--打印sql-->
+    <logger name="com.wjspc.dao" level="DEBUG"/>
+
     <!--<springProfile name="default">
         <logger name="com.ws.shavuot" level="TRACE" />
     </springProfile>

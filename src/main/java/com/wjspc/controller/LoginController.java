@@ -30,4 +30,20 @@ public class LoginController {
 
         return responseViewModel;
     }
+
+    /**
+     * spring缓存测试
+     * @param phone
+     * @return
+     */
+    @RequestMapping(value = "/getUser/{phone}",
+            method = RequestMethod.GET)
+    public Object getUser(@PathVariable String phone){
+        User user = userService.getUser(phone);
+
+        ResponseViewModel responseViewModel = new ResponseViewModel();
+        responseViewModel.setData(user);
+
+        return responseViewModel;
+    }
 }

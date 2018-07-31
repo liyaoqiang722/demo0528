@@ -1,6 +1,8 @@
 package com.wjspc.service;
 
 import com.wjspc.domain.User;
+import org.springframework.cache.annotation.CacheConfig;
+import org.springframework.cache.annotation.Cacheable;
 
 /**
  * Created by 79445 on 2018/5/30.
@@ -13,4 +15,11 @@ public interface UserService {
      * @return
      */
     String register(User user);
+
+    /**
+     * spring缓存测试
+     * @param phone
+     * @return
+     */
+    User getUser(String phone);
 }
