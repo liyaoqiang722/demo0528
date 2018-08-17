@@ -23,9 +23,5 @@ public interface UserMapper {
      * @param phoneNumber
      * @return
      */
-    /*@Cacheable(cacheNames = "users")    //下次请求此方法时直接从缓存中获取
-    User getUser(@Param("phoneNumber") String phoneNumber);*/
-
-    @Cacheable(value = "user", key = "#root.targetClass + #username", unless = "#result eq null")
     User getUser(@Param("phoneNumber") String phoneNumber);
 }

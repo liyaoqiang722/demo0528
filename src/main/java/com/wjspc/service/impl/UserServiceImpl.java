@@ -8,6 +8,7 @@ import com.wjspc.domain.User;
 import com.wjspc.service.UserService;
 import lombok.extern.log4j.Log4j2;
 import org.json.JSONObject;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
@@ -49,16 +50,13 @@ public class UserServiceImpl implements UserService {
      * @return
      */
     @Override
+    @Cacheable(value = "user")
     public User getUser(String phone) {
 
-        User user1 = userMapper.getUser(phone);
-        log.info("第一次查询user信息：" + user1.toString());
+        User user = userMapper.getUser(phone);
+        log.info("查询user信息：" + user.toString());
 
-        User user2 = userMapper.getUser(phone);
-        user2 = userMapper.getUser(phone);
-        log.info("第二次查询user信息：" + user2.toString());
-
-        return user2;
+        return user;
     }
 
 }
