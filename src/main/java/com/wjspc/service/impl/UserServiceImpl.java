@@ -1,13 +1,10 @@
 package com.wjspc.service.impl;
 
-import com.baidu.aip.ocr.AipOcr;
-import com.baidu.aip.speech.AipSpeech;
 import com.wjspc.constant.UserStatus;
 import com.wjspc.dao.UserMapper;
 import com.wjspc.domain.User;
 import com.wjspc.service.UserService;
 import lombok.extern.log4j.Log4j2;
-import org.json.JSONObject;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;

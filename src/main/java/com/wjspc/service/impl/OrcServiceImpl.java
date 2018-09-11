@@ -1,8 +1,6 @@
 package com.wjspc.service.impl;
 
-import com.baidu.aip.speech.AipSpeech;
 import com.wjspc.service.OrcService;
-import org.json.JSONObject;
 import org.springframework.stereotype.Service;
 
 /**
@@ -42,11 +40,12 @@ public class OrcServiceImpl implements OrcService {
         /**
          * 语音识别
          */
-        AipSpeech client = new AipSpeech(APP_ID, API_KEY, SECRET_KEY);
+        /*AipSpeech client = new AipSpeech(APP_ID, API_KEY, SECRET_KEY);
 
         String path = "C:\\Users\\79445\\Desktop\\16k.pcm";
-        JSONObject asrRes = client.asr(path, "pcm", 16000, null);
+        JSONObject asrRes = client.asr(path, "pcm", 16000, null);*/
 
-        return asrRes.toString();
+        //return asrRes.toString();
+        return null;
     }
 }
