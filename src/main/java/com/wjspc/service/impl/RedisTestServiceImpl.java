@@ -3,6 +3,11 @@ package com.wjspc.service.impl;
 import com.wjspc.domain.User;
 import com.wjspc.service.RedisTestService;
 import com.wjspc.service.UserService;
+import lombok.extern.log4j.Log4j2;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.core.RedisTemplate;
+import org.springframework.data.redis.serializer.RedisSerializer;
+import org.springframework.data.redis.serializer.StringRedisSerializer;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -10,6 +15,7 @@ import javax.annotation.Resource;
 /**
  * Created by 79445 on 2018/8/30.
  */
+@Log4j2
 @Service
 public class RedisTestServiceImpl implements RedisTestService {
 
@@ -48,12 +54,40 @@ public class RedisTestServiceImpl implements RedisTestService {
     /**
      *
      */
+    @Autowired
+    private RedisTemplate redisTemplate;
+
+    /**
+     *
+     */
     @Override
-    public void test01() {
+    public User test01() {
 
-        User user = userService.getUser("17637925856");
+        //User一定到实现序列化，才可以set
+        RedisSerializer redisSerializer = new StringRedisSerializer();
+        redisTemplate.setKeySerializer(redisSerializer);
 
-        //valOps.set("name",user.getUserName());
+        User user = (User) redisTemplate.opsForValue().get("user");
+
+        int i = 1;
+        log.info("redis=======：：：" + i);
+
+        //双重检测锁，预防缓存穿透
+        if (user == null ){
+            synchronized (this){
+                user = (User) redisTemplate.opsForValue().get("user");
+                int j = 1;
+                log.info("redisMMMMMMMMMM：：：" + j);
+                if (user == null ){
+                    user = userService.getUser("17637925856");
+                    int z = 1;
+                    log.info("数据库【【【【【【：：：" + z);
+                    redisTemplate.opsForValue().set("user",user);
+                }
+            }
+        }
+
+        return user;
 
     }
 }

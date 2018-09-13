@@ -2,13 +2,14 @@ package com.wjspc.domain;
 
 import lombok.Data;
 
+import java.io.Serializable;
 import java.util.Date;
 
 /**
  * Created by 79445 on 2018/6/4.
  */
 @Data
-public class User {
+public class User implements Serializable{
 
     /**
      *
