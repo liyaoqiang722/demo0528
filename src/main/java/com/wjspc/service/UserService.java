@@ -4,6 +4,8 @@ import com.wjspc.domain.User;
 import org.springframework.cache.annotation.CacheConfig;
 import org.springframework.cache.annotation.Cacheable;
 
+import java.util.List;
+
 /**
  * Created by 79445 on 2018/5/30.
  */
@@ -22,4 +24,10 @@ public interface UserService {
      * @return
      */
     User getUser(String phone);
+
+    /**
+     *
+     * @return
+     */
+    List<User> getUserList();
 }

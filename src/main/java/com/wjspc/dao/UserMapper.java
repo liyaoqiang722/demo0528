@@ -4,6 +4,8 @@ import com.wjspc.domain.User;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
+import java.util.List;
+
 /**
  * Created by 79445 on 2018/5/30.
  */
@@ -23,4 +25,10 @@ public interface UserMapper {
      * @return
      */
     User getUser(@Param("phoneNumber") String phoneNumber);
+
+    /**
+     *
+     * @return
+     */
+    List<User> getUserList();
 }

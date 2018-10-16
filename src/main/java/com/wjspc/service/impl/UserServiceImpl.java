@@ -14,6 +14,7 @@ import org.springframework.transaction.annotation.Transactional;
 import javax.annotation.Resource;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 import java.util.UUID;
 
 /**
@@ -54,6 +55,19 @@ public class UserServiceImpl implements UserService {
         log.info("查询user信息：" + user.toString());
 
         return user;
+    }
+
+    /**
+     *
+     * @return
+     */
+    @Override
+    public List<User> getUserList() {
+
+        List<User> userList = userMapper.getUserList();
+        log.info("查询user信息：" + userList.toString());
+
+        return userList;
     }
 
 }

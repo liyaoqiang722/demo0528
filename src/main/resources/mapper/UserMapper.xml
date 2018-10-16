@@ -63,4 +63,11 @@
             and phone_number = #{phoneNumber,jdbcType=VARCHAR}
         </if>
     </select>
+
+    <select id="getUserList" parameterType="java.lang.String" resultType="com.wjspc.domain.User">
+        select
+        <include refid="Base_Column_List"/>
+        from
+        st_user
+    </select>
 </mapper>
