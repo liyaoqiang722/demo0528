@@ -20,7 +20,7 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
  * Created by 79445 on 2018/5/29.
  */
 @Configuration
-@EnableWebSecurity  //spring Security开启注解，同事继承WebSecurityConfigurerAdapter就完成了spring Security的配置
+//@EnableWebSecurity  //spring Security开启注解，同事继承WebSecurityConfigurerAdapter就完成了spring Security的配置(springboot无需使用，只需要继承WebSecurityConfigurerAdapter)
 @PropertySource("classpath:security-default.properties")
 @EnableGlobalMethodSecurity(prePostEnabled = true)//允许进入页面方法前检验
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
@@ -113,10 +113,10 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         //http.addFilterBefore(authenticationTokenFilterBean(), UsernamePasswordAuthenticationFilter.class);
     }
 
-    @Autowired
+    /*@Autowired
     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {   //在内存中创建了一个用户，该用户的名称为user，密码为password，用户角色为USER
 
-        /*
+        *//*
             auth
                     .inMemoryAuthentication()   //此方法用来添加在内存中的用户，并指定角色
                         .passwordEncoder(new BCryptPasswordEncoder())   //登陆时用BCrypt加密方式对用户密码进行处理
@@ -124,12 +124,12 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                         .password(new BCryptPasswordEncoder().encode("123456")) //对内存中的密码进行Bcrypt编码加密
                         //如果你用的是在数据库中存储用户名和密码，那么一般是要在用户注册时就使用BCrypt编码将用户密码加密处理后存储在数据库中
                         .roles("USER");
-        */
+        *//*
 
-        /*auth
+        *//*auth
                 .jdbcAuthentication()
                 .usersByUsernameQuery("sql")    //指定查询用户SQL
-                .authoritiesByUsernameQuery("sql");   //指定查询权限SQL*/
+                .authoritiesByUsernameQuery("sql");   //指定查询权限SQL*//*
 
 
         //auth.jdbcAuthentication().dataSource(dataSource).usersByUsernameQuery(query).authoritiesByUsernameQuery(query);
@@ -137,7 +137,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         //注入userDetailsService，需要实现userDetailsService接口
         //auth.userDetailsService(userDetailsService);
 
-    }
+    }*/
 
 
 }
