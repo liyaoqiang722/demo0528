@@ -1,5 +1,11 @@
-/target/
-!.mvn/wrapper/maven-wrapper.jar
+# maven ignore
+target/
+
+# gradle ignore
+.gradle/
+out/
+build/
+!gradle/wrapper/gradle-wrapper.jar
 
 ### STS ###
 .apt_generated
@@ -10,11 +16,31 @@
 .springBeans
 .sts4-cache
 
+# eclipse ignore
+.settings/
+.project
+.classpath
+classes/
+
 ### IntelliJ IDEA ###
 .idea
 *.iws
 *.iml
 *.ipr
+/out/
+
+# temp ignore
+*.log*
+*.cache
+*.diff
+*.patch
+*.tmp
+*.swp
+
+# system ignore
+.DS_Store
+Thumbs.db
+hs_err_pid*
 
 ### NetBeans ###
 /nbproject/private/
@@ -23,3 +49,7 @@
 /dist/
 /nbdist/
 /.nb-gradle/
+
+# sass ignore
+.sass-cache/
+*.css.map

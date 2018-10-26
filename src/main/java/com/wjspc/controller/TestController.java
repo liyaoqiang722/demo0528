@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Created by 79445 on 2018/8/30.
@@ -67,6 +69,11 @@ public class TestController {
 
         ResponseViewModel responseViewModel = new ResponseViewModel();
         responseViewModel.setData(buffer.toString());
+
+
+
+        Map map = new HashMap();
+        map.put(1,"a");
 
         return responseViewModel;
     }
